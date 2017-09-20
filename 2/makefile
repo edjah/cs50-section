@@ -12,4 +12,4 @@ crack2: crack.c brute2.h
 	gcc -std=c11 -Ofast crack.c brute2.h -o crack -lcrypt
 
 %: %.c
-	gcc -std=c11 -Ofast -lm $< -o $@ -lcs50 -lcrypt
+	gcc -std=c11 -Ofast -lm $< -o $@ -lcs50 -lcrypt -ggdb
