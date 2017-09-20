@@ -6,7 +6,7 @@
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
+    if (argc != 2 || strncmp(argv[1], "-h", 2) == 0) {
         printf("Usage: ./random target\n");
         return 1;
     }
