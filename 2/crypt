@@ -1,0 +1,11 @@
+#!/usr/bin/python3.5
+import crypt
+import sys
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: ./crypt plaintext [salt]")
+    else:
+        hash = sys.argv[1]
+        salt = "50" if len(sys.argv) == 2 else sys.argv[2]
+        print(crypt.crypt(hash, salt))
