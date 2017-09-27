@@ -19,14 +19,16 @@ int main(int argc, char *argv[]) {
     printf("Num vals: %d\n", num_vals);
 
 
-    // benchmarking
+    // inserting random numbers into the BST
     clock_t start = clock();
     for (int i = 0; i < num_vals; i++) {
         insert(rand() % max_val);
     }
+
+    // searching for random numbers in the BST
     clock_t mid = clock();
     for (int i = 0; i < num_vals; i++) {
-        contains(rand() % max_val);
+        search(rand() % max_val);
     }
     clock_t end = clock();
 

@@ -20,15 +20,15 @@ node *root = NULL;
 int tree_size = 0;
 
 // determine whether a value is in the tree
-bool search(node *n, int i) {
+bool contains(node *n, int i) {
     if (n == NULL) {
         return false;
     }
     else if (i > n->val) {
-        return search(n->right, i);
+        return contains(n->right, i);
     }
     else if (i < n->val) {
-        return search(n->left, i);
+        return contains(n->left, i);
     }
     return true;
 }
@@ -51,8 +51,8 @@ node* put(node *n, int i) {
 }
 
 // determine whether or not a value in the BST
-bool contains(int i) {
-    return search(root, i);
+bool search(int i) {
+    return contains(root, i);
 }
 
 // insert a value into the BST

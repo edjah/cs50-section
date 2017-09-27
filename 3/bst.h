@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 /* Returns true if `i` is in the data structure otherwise false */
-bool contains(int i);
+bool search(int i);
 
 /* Inserts `i` into the data structure if it doesn't already exist there */
 void insert(int i);

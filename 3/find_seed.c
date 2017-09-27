@@ -21,10 +21,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    char str[n + 1];
     int found = 0;
-    str[n] = '\0';
-
     for (int seed = 0; seed < RAND_MAX; seed++) {
         srand(seed);
         found = 1;
