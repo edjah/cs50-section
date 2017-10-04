@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     // allocating a total of over 2 TB of memory
     size_t tot = 0;
     for (int i = 0; i < 6150; i++) {
-        int *ptr = malloc(0xfffff * i); // 268 MB
+        int *ptr = malloc(0xfffff * i);
         tot += 0xfffff * i;
         free(ptr);
     }
