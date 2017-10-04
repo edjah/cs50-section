@@ -86,6 +86,9 @@ int main(int argc, char *argv[]) {
     if (strcmp(argv[1], "quicksort") == 0) {
         quicksort(a, size);
     }
+    else if (strcmp(argv[1], "builtinsort") == 0) {
+        builtinsort(a, size);
+    }
     else if (strcmp(argv[1], "mergesort") == 0) {
         mergesort(a, size);
     }

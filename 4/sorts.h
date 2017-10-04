@@ -86,6 +86,14 @@ void mergesort(int *a, int size) {
 }
 
 
+int compare(const void *a, const void *b) {
+    return *((int *) a) - *((int *) b);
+}
+
+void builtinsort(int *a, int size) {
+    qsort(a, size, sizeof(int), compare);
+}
+
 void insertionsort(int *a, int size) {
     int j, key;
     for (int i = 1; i < size; i++) {

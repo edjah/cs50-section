@@ -1,5 +1,5 @@
 sort: sort.c sorts.h
-	gcc -std=c11 -O1 sort.c sorts.h -o sort -ggdb
+	gcc -std=c11 -Ofast sort.c sorts.h -o sort -ggdb
 
 find_seed: find_seed.c
 	gcc -std=c11 -O1 find_seed.c -o find_seed -ggdb
