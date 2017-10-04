@@ -3,13 +3,13 @@
 #include <string.h>
 #include <time.h>
 #include "seed.h"
-#define MAX_NUM 100000
 
 unsigned x;
 
 void mysrand(unsigned seed) {
     x = seed;
 }
+
 unsigned myrand() {
     x = 1103515245 * x + 12345;
     return x;
@@ -17,23 +17,25 @@ unsigned myrand() {
 
 int main(int argc, char *argv[]) {
     // ensuring correct usage
-    if (argc < 2 || strncmp(argv[1], "-h", 2) == 0) {
-        printf("Usage: ./rand seed\n");
+    if (argc < 3 || strncmp(argv[1], "-h", 2) == 0) {
+        printf("Usage: ./rand seed num\n");
         return 1;
     }
 
-    srand(atoi(argv[1]));
+    int seed = atoi(argv[1]);
+    int size = atoi(argv[2]);
+    srand(seed);
 
-    int *a = calloc(sizeof(int), MAX_NUM);
-    for (int i = 0; i < MAX_NUM; i++) {
-        a[rand() % MAX_NUM]++;
+    unsigned char *a = calloc(size, sizeof(unsigned char));
+    for (int i = 0; i < size; i++) {
+        a[rand() % size]++;
     }
 
     int max = 0;
     int tot_nonzero = 0;
     int non_zero = 0;
 
-    for (int i = 0; i < MAX_NUM; i++) {
+    for (int i = 0; i < size; i++) {
         if (a[i] != 0) {
             non_zero++;
             tot_nonzero += a[i];
@@ -45,7 +47,7 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Max: %d\n", max);
-    printf("Nonzero: %d\n", non_zero);
+    printf("Nonzero: %.5f\n", (double) non_zero / size);
     printf("Avg nonzero: %.4f\n", (double) tot_nonzero / non_zero);
 
 }
