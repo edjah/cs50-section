@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="col">
+    <input type="number" id="x" placeholder="number1"> x
+    <input type="number" id="y" placeholder="number2"> =
+    <input id="result" placeholder="?">
+    <button id="multiply-button">Multiply</button>
+
+
+    <script type="text/javascript">
+
+
+        var mult = document.getElementById("multiply-button");
+        mult.addEventListener("click", function(e) {
+            var x = document.getElementById('x').value;
+            var y = document.getElementById('y').value;
+            document.getElementById('result').value = x * y;
+        })
+    </script>
+
+</div>
+
+{% endblock %}
+
+
