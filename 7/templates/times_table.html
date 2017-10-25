@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col" style="overflow: scroll">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    {% for i in range(width + 1) %}
+                        <th>{{ i }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for j in range(height + 1) %}
+                    <tr>
+                        <th> </th>
+                        <th>{{ j }}</th>
+                        {% for item in table[j] %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+

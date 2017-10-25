@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/times_table" enctype="multipart/form-data" method="post">
+            <input type="number" name="width" placeholder="width"><br>
+            <input type="number" name="height" placeholder="height"><br>
+            <button type="submit">Generate Times Table</button>
+        </form>
+    </div>
+
+{% endblock %}

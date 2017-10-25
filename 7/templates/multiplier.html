@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/multiply" enctype="multipart/form-data" method="get">
+            <input type="number" name="x" placeholder="x"> ×
+            <input type="number" name="y" placeholder="y"> = ? <br>
+            <button type="submit">Multiply</button>
+        </form>
+    </div>
+
+{% endblock %}
