@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/register" enctype="multipart/form-data" method="post">
+            <input type="text" name="username" placeholder="username" pattern="[A-Za-z0-9]*" title="Alphanumeric only"><br>
+            <input type="password" name="password" placeholder="password" pattern="[A-Za-z0-9]*" title="Alphanumeric only"><br>
+            <input type="password" name="password2" placeholder="confirm password" pattern="[A-Za-z0-9]*" title="Alphanumeric only"><br>
+            <input type="number" name="net_worth" placeholder="goal net worth"><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+{% endblock %}
