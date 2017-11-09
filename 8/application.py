@@ -1,12 +1,14 @@
 import os
 import datetime
 from flask import Flask, Response, url_for, redirect, render_template, request, session
+from cs50 import SQL
 
 # configuration of the Flask session
 app = Flask(__name__)
 
+
 # a list of people
-people = {}
+db = SQL("sqlite:///finance.db")
 
 @app.route('/', methods=['GET'])
 def index():
@@ -18,7 +20,8 @@ def mutliplier():
 
 @app.route('/database', methods=['GET'])
 def get_database():
-    return render_template('database.html', people=list(people.values()))
+    rows = db.execute("SELECT * FROM people")
+    return render_template('database.html', people=rows)
 
 
 @app.route('/register', methods=['POST'])
@@ -44,20 +47,17 @@ def register():
             desc=''
         )
 
-    if user in people:
+    rows = db.execute("SELECT * FROM people where username = :user", user=user)
+    if len(rows) > 0:
         return render_template(
             'error.html',
             code='420',
-            title='User already exists',
+            title='Username already exists!',
             desc=''
         )
 
-    people[user] = {
-        'username': user,
-        'password': pass1,
-        'net_worth': net_worth,
-        'registered': str(datetime.datetime.utcnow())
-    }
+    db.execute("INSERT INTO people (username,password,net_worth) VALUES (:user,:pass1,:net_worth)",
+               user=user, pass1=pass1, net_worth=net_worth)
 
     return redirect(url_for('get_database'))
 
