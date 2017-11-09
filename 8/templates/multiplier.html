@@ -3,17 +3,23 @@
 {% block body %}
 
 <div class="col" style="margin: 10px">
-    <input type="number" id="x" placeholder="number1"> x
-    <input type="number" id="y" placeholder="number2"> =
-    <input id="result" placeholder="?" disabled>
+
+    <input type="number" name="x" id="x" placeholder="number1"> x
+    <input type="number" name="y" id="y" placeholder="number2"> =
+    <p style="display: inline; width: 500px" id="result">???</p><br>
     <button id="multiply-button">Multiply</button>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         var mult = document.getElementById("multiply-button");
         mult.addEventListener("click", function(e) {
             var x = document.getElementById('x').value;
             var y = document.getElementById('y').value;
-            document.getElementById('result').value = x * y;
+
+            var answer = "?????????????/";
+            $.get("/multiply", {'x': x, 'y': y}, function(result) {
+                document.getElementById('result').innerHTML = result;
+            });
         });
     </script>
 </div>

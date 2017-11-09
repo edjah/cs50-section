@@ -69,12 +69,7 @@ def multiply():
         return str(x * y)
 
     except Exception as e:
-        return render_template(
-            'error.html',
-            code='420',
-            title='Invalid arguments',
-            desc='Please provide a valid x and y'
-        )
+        return 'error'
 
 
 @app.route('/times_table', methods=['POST', 'GET'])

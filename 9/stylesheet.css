@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    font-family: monospace;
+    color: white;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+#canvas {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+
+#fpscounter {
+    text-align: right;
+}
+
+#line {
+    stroke: #ffffff;
+    stroke-width: 2;
+}
